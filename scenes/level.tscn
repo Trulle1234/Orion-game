@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ymehte26hjro"]
+
+[ext_resource type="PackedScene" uid="uid://bkxmrrknfnf6n" path="res://scenes/player.tscn" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://bi05uyjfoprbl" path="res://scripts/level.gd" id="1_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://uw6etonaysuo" path="res://scenes/item_spawner.tscn" id="4_mx8sn"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mx8sn"]
+b = Vector2(0, 1024)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ppgk2"]
+b = Vector2(760, 0)
+
+[node name="Level" type="Node2D" unique_id=599444854]
+script = ExtResource("1_w7c3h")
+
+[node name="Border" type="StaticBody2D" parent="." unique_id=1946682344]
+collision_layer = 2
+
+[node name="CollisionShapeRight" type="CollisionShape2D" parent="Border" unique_id=1657330752]
+position = Vector2(760, -1)
+shape = SubResource("SegmentShape2D_mx8sn")
+
+[node name="CollisionShapeLeft" type="CollisionShape2D" parent="Border" unique_id=803893454]
+shape = SubResource("SegmentShape2D_mx8sn")
+
+[node name="CollisionShapeTop" type="CollisionShape2D" parent="Border" unique_id=141673725]
+shape = SubResource("SegmentShape2D_ppgk2")
+
+[node name="CollisionShapeBottom" type="CollisionShape2D" parent="Border" unique_id=1428350788]
+position = Vector2(0, 1024)
+shape = SubResource("SegmentShape2D_ppgk2")
+
+[node name="Player" parent="." unique_id=1884810237 instance=ExtResource("1_u52ul")]
+z_index = 99
+position = Vector2(356, 929)
+
+[node name="ItemSpawner" parent="." unique_id=11656450 instance=ExtResource("4_mx8sn")]
