@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var label: Label = $Score
-
 var scroll_speed = 100
 
 var junk_part = 0.2
@@ -12,5 +10,4 @@ var score_buffer = 0
 func _ready():
 	print(get_children())
 
-func _process(delta: float) -> void:
-	label.text = str(score)
+# func _process(delta: float) -> void:
