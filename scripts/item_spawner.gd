@@ -1,11 +1,14 @@
 extends Node2D
 
-var food_spawn_rate = 0.5
+var timer = 0.0
 
-var point_1 = Vector2(0, -64)
-@onready var point_2 = Vector2(get_viewport().get_visible_rect().size.x, 0)
+var point_1 = Vector2(10, -42)
+@onready var point_2 = Vector2(get_viewport().get_visible_rect().size.x - 10, 0)
 
 @onready var food = preload("res://scenes/food.tscn")
+@onready var junk = preload("uid://sllwqvvrtoee")
+
+var instance: Node = null
 
 func get_random_point(p1, p2):
 	var x_value = randf_range(p1.x, p2.x)
@@ -15,15 +18,25 @@ func get_random_point(p1, p2):
 	return random_point
 	
 func spawn():
-	var food_instance: Node = food.instantiate()
-	add_child(food_instance)
+	if randf() < Level.junk_part:
+		instance = junk.instantiate()
+		add_child(instance)
+	else: 
+		instance = food.instantiate()
+		add_child(instance)
 	
 	var spawn_pos = get_random_point(point_1, point_2)
-	food_instance.set_position(spawn_pos)
+	instance.set_position(spawn_pos)
+func schedule_next():
+	timer = randf_range(1.8, 2.2)
 
 func _ready() -> void:
 	randomize()
+	schedule_next()
 
 func _process(delta: float) -> void:
-	if randf() < min(food_spawn_rate * delta, 1.0):
+	timer -= delta
+	
+	if timer <= 0.0:
 		spawn()
+		schedule_next()

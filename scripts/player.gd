@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED = 300.0
 const ACCEL = 500.0
 const FRICTION = 40.0
-const BOUNCE_FACTOR = 1.0
+const BOUNCE_FACTOR = 0
 
 const MAX_TURN_SPEED = 3.0
 const TURN_ACCEL = 10.0
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	
 func get_input() -> void:
 	move_input = Input.get_action_strength("up")
-	turn_input = Input.get_axis("left", "right")
+	turn_input = Input.get_axis("right", "left")
 
 func player_movement(delta: float) -> void:
 	get_input()

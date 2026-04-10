@@ -5,11 +5,11 @@ extends Area2D
 var rotation_velocity = 0
 
 func _on_body_entered(body: Node2D) -> void:
-	Level.score += 1
+	Level.score -= 1
 	self.queue_free()
 
 func _ready() -> void:
-	sprite_2d.modulate = Color(0.0, 1.0, 0.0, 1.0)
+	sprite_2d.modulate = Color(1.0, 0.0, 0.0, 1.0)
 	
 	rotation = deg_to_rad(randi_range(0, 360))
 	rotation_velocity = deg_to_rad(randi_range(40, 140))

@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://denx3jr5qoiex"]
+[gd_scene format=3 uid="uid://sllwqvvrtoee"]
 
-[ext_resource type="Script" uid="uid://dd17ffu4drurq" path="res://scripts/food.gd" id="1_af40f"]
-[ext_resource type="Texture2D" uid="uid://onr24muju4ty" path="res://assets/icon.svg" id="1_xven1"]
+[ext_resource type="Script" uid="uid://bqoxh3qan8hym" path="res://scripts/junk.gd" id="1_0cflg"]
+[ext_resource type="Texture2D" uid="uid://onr24muju4ty" path="res://assets/icon.svg" id="2_1q2t1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xven1"]
 radius = 34.0147
 
-[node name="Food" type="Area2D" unique_id=1184272503]
+[node name="Junk" type="Area2D" unique_id=1184272503]
 collision_layer = 2
-script = ExtResource("1_af40f")
+script = ExtResource("1_0cflg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885437585]
 scale = Vector2(0.52441406, 0.52441406)
-texture = ExtResource("1_xven1")
+texture = ExtResource("2_1q2t1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1483170426]
 shape = SubResource("CircleShape2D_xven1")
