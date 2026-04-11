@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://iiqndf64vfv3" path="res://scenes/game_over.tscn" id="2_ppgk2"]
 [ext_resource type="FontFile" uid="uid://codtk20kky7st" path="res://assets/Unitblock.ttf" id="3_2r41h"]
 [ext_resource type="PackedScene" uid="uid://uw6etonaysuo" path="res://scenes/item_spawner.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://beiljonam1wm4" path="res://scenes/background.tscn" id="7_klq6b"]
+[ext_resource type="Script" uid="uid://cp5enw2bpjy0g" path="res://scripts/music_player.gd" id="8_b121j"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mx8sn"]
 b = Vector2(0, 1024)
@@ -30,6 +32,12 @@ text = "0"
 horizontal_alignment = 2
 script = ExtResource("2_mx8sn")
 
+[node name="ItemSpawner" parent="." unique_id=11656450 instance=ExtResource("4_mx8sn")]
+z_index = 1
+
+[node name="Player" parent="." unique_id=1884810237 instance=ExtResource("1_u52ul")]
+position = Vector2(356, 929)
+
 [node name="Border" type="StaticBody2D" parent="." unique_id=1946682344]
 collision_layer = 2
 
@@ -49,8 +57,11 @@ shape = SubResource("SegmentShape2D_ppgk2")
 position = Vector2(0, 1064)
 shape = SubResource("SegmentShape2D_ppgk2")
 
-[node name="Player" parent="." unique_id=1884810237 instance=ExtResource("1_u52ul")]
-position = Vector2(356, 929)
+[node name="Background" parent="." unique_id=926372876 instance=ExtResource("7_klq6b")]
+z_index = -1
 
-[node name="ItemSpawner" parent="." unique_id=11656450 instance=ExtResource("4_mx8sn")]
-z_index = 1
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=648865927]
+position = Vector2(383, 464)
+max_distance = 4096.0
+attenuation = 1e-05
+script = ExtResource("8_b121j")
