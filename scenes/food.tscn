@@ -9,6 +9,7 @@ size = Vector2(43, 49)
 
 [node name="Food" type="Area2D" unique_id=1184272503]
 collision_layer = 2
+input_pickable = false
 script = ExtResource("1_af40f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885437585]

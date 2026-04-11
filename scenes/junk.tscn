@@ -9,6 +9,7 @@ radius = 25.179358
 
 [node name="Junk" type="Area2D" unique_id=1184272503]
 collision_layer = 2
+input_pickable = false
 script = ExtResource("1_0cflg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885437585]

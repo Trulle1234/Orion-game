@@ -19,7 +19,6 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 Level="*uid://bi05uyjfoprbl"
-MusicPlayer="*uid://cp5enw2bpjy0g"
 
 [display]
 

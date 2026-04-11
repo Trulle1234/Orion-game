@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://codtk20kky7st" path="res://assets/Unitblock.ttf" id="3_2r41h"]
 [ext_resource type="PackedScene" uid="uid://uw6etonaysuo" path="res://scenes/item_spawner.tscn" id="4_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://beiljonam1wm4" path="res://scenes/background.tscn" id="7_klq6b"]
-[ext_resource type="Script" uid="uid://cp5enw2bpjy0g" path="res://scripts/music_player.gd" id="8_b121j"]
+[ext_resource type="AudioStream" uid="uid://kvt5bchvuthk" path="res://assets/rossini.mp3" id="8_8c41q"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mx8sn"]
 b = Vector2(0, 1024)
@@ -62,7 +62,8 @@ z_index = -1
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=648865927]
 position = Vector2(383, 464)
-volume_db = -10.0
+stream = ExtResource("8_8c41q")
+autoplay = true
 max_distance = 4096.0
 attenuation = 1e-05
-script = ExtResource("8_b121j")
+parameters/looping = true

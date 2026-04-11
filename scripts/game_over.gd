@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var final_score: Label = $FinalScore
-@onready var restart: Button = $Restart
+@onready var final_score: Label = $Control/FinalScore
+@onready var restart: Button = $Control/Restart
 
 func _ready() -> void:
 	self.visible = false
