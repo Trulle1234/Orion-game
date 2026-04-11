@@ -2,12 +2,19 @@ extends Node2D
 
 var scroll_speed = 100
 
+var score = 0
 var junk_part = 0.2
 
-var score = 0
-var score_buffer = 0
+var game_over = false
 
-func _ready():
-	print(get_children())
+func restart():
+	print("adasd")
+	
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	
+	scroll_speed = 100
 
-# func _process(delta: float) -> void:
+	score = 0
+	junk_part = 0.2
+
+	game_over = false

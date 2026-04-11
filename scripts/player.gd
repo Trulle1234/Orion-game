@@ -3,7 +3,7 @@ extends CharacterBody2D
 const MAX_SPEED = 300.0
 const ACCEL = 500.0
 const FRICTION = 40.0
-const BOUNCE_FACTOR = 0
+const BOUNCE_FACTOR = 0.9
 
 const MAX_TURN_SPEED = 3.0
 const TURN_ACCEL = 10.0
@@ -29,7 +29,8 @@ func get_input() -> void:
 	turn_input = Input.get_axis("right", "left")
 
 func player_movement(delta: float) -> void:
-	get_input()
+	if !Level.game_over:
+		get_input()
 
 	var target_turn_velocity = turn_input * MAX_TURN_SPEED
 	var turn_step = TURN_ACCEL if turn_input != 0.0 else TURN_DECEL

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://iiqndf64vfv3"]
+
+[ext_resource type="Script" uid="uid://x2pjhd8q8awf" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="FontFile" uid="uid://codtk20kky7st" path="res://assets/Unitblock.ttf" id="2_wqhvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wqhvx"]
+bg_color = Color(0.15686275, 0.09411765, 0.28235295, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_racf3"]
+bg_color = Color(0.3254902, 0.19607843, 0.47843137, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbwuq"]
+bg_color = Color(0.32509652, 0.19547462, 0.47900385, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_left = 16
+
+[node name="GameOver" type="Node2D" unique_id=1534392277]
+script = ExtResource("1_xeevv")
+
+[node name="Text" type="Label" parent="." unique_id=574666731]
+z_index = 999
+offset_left = 1.0
+offset_top = 338.0
+offset_right = 760.0
+offset_bottom = 496.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 128
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="FinalScore" type="Label" parent="." unique_id=707925058]
+z_index = 999
+offset_left = -1.0
+offset_top = 474.0
+offset_right = 759.0
+offset_bottom = 541.0
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 48
+text = "Your final score was: "
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="." unique_id=2051486154]
+z_index = 1000
+offset_left = 252.0
+offset_top = 601.0
+offset_right = 497.0
+offset_bottom = 697.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.70980394, 0.7176471, 0.9098039, 1)
+theme_override_colors/font_hover_color = Color(0.70980394, 0.7176471, 0.9098039, 1)
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_wqhvx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_racf3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tbwuq")
+text = "Restart"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]

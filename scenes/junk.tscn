@@ -1,20 +1,27 @@
 [gd_scene format=3 uid="uid://sllwqvvrtoee"]
 
 [ext_resource type="Script" uid="uid://bqoxh3qan8hym" path="res://scripts/junk.gd" id="1_0cflg"]
-[ext_resource type="Texture2D" uid="uid://onr24muju4ty" path="res://assets/icon.svg" id="2_1q2t1"]
+[ext_resource type="Texture2D" uid="uid://bgcl8j37qyqef" path="res://assets/asteroid.svg" id="2_0cflg"]
+[ext_resource type="AudioStream" uid="uid://krvyjnvva4gj" path="res://assets/explode.mp3" id="3_1q2t1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xven1"]
-radius = 34.0147
+radius = 25.179358
 
 [node name="Junk" type="Area2D" unique_id=1184272503]
 collision_layer = 2
 script = ExtResource("1_0cflg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885437585]
-scale = Vector2(0.52441406, 0.52441406)
-texture = ExtResource("2_1q2t1")
+position = Vector2(1.9073486e-06, 0.9999981)
+scale = Vector2(0.7493865, 0.7493865)
+texture = ExtResource("2_0cflg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1483170426]
 shape = SubResource("CircleShape2D_xven1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=392324245]
+stream = ExtResource("3_1q2t1")
+max_distance = 4096.0
+attenuation = 7.7792974e-05
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

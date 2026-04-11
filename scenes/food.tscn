@@ -1,20 +1,27 @@
 [gd_scene format=3 uid="uid://denx3jr5qoiex"]
 
 [ext_resource type="Script" uid="uid://dd17ffu4drurq" path="res://scripts/food.gd" id="1_af40f"]
-[ext_resource type="Texture2D" uid="uid://onr24muju4ty" path="res://assets/icon.svg" id="1_xven1"]
+[ext_resource type="Texture2D" uid="uid://ciqdnelntaeap" path="res://assets/cheese.svg" id="2_af40f"]
+[ext_resource type="AudioStream" uid="uid://cclwqr54ejwd3" path="res://assets/nom.mp3" id="3_370ap"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xven1"]
-radius = 34.0147
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_af40f"]
+size = Vector2(43, 49)
 
 [node name="Food" type="Area2D" unique_id=1184272503]
 collision_layer = 2
 script = ExtResource("1_af40f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885437585]
-scale = Vector2(0.52441406, 0.52441406)
-texture = ExtResource("1_xven1")
+scale = Vector2(0.6907785, 0.69077855)
+texture = ExtResource("2_af40f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1483170426]
-shape = SubResource("CircleShape2D_xven1")
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_af40f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=104877635]
+stream = ExtResource("3_370ap")
+max_distance = 4096.0
+attenuation = 1e-05
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

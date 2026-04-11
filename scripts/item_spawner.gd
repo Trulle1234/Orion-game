@@ -2,8 +2,8 @@ extends Node2D
 
 var timer = 0.0
 
-var point_1 = Vector2(10, -42)
-@onready var point_2 = Vector2(get_viewport().get_visible_rect().size.x - 10, 0)
+var point_1 = Vector2(10, -32)
+@onready var point_2 = Vector2(get_viewport().get_visible_rect().size.x - 10, -32)
 
 @onready var food = preload("res://scenes/food.tscn")
 @onready var junk = preload("uid://sllwqvvrtoee")
@@ -28,7 +28,7 @@ func spawn():
 	var spawn_pos = get_random_point(point_1, point_2)
 	instance.set_position(spawn_pos)
 func schedule_next():
-	timer = randf_range(1.8, 2.2)
+	timer = randf_range(1, 1.4)
 
 func _ready() -> void:
 	randomize()
@@ -37,6 +37,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	timer -= delta
 	
-	if timer <= 0.0:
+	if timer <= 0.0 and !Level.game_over:
 		spawn()
 		schedule_next()
