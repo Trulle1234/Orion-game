@@ -36,5 +36,5 @@ func _physics_process(delta: float) -> void:
 	position.y += move_speed * delta
 	rotation += rotation_velocity * delta
 	
-	if position.y > get_viewport().get_visible_rect().size.y + 128:
+	if position.y > get_viewport().get_visible_rect().size.y + 64:
 		self.queue_free()

@@ -28,7 +28,7 @@ func spawn():
 	var spawn_pos = get_random_point(point_1, point_2)
 	instance.set_position(spawn_pos)
 func schedule_next():
-	timer = randf_range(1, 1.4)
+	timer = randf_range(Level.time_min, Level.time_max)
 
 func _ready() -> void:
 	randomize()
