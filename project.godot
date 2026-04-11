@@ -13,6 +13,7 @@ config_version=5
 config/name="orion game"
 run/main_scene="uid://ymehte26hjro"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.03529412, 0.08235294, 0.14901961, 1)
 config/icon="res://assets/icon.svg"
 
 [autoload]
