@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	if score != score_buffer:
 		scroll_speed += 1
 		
-		junk_part += 0.015
+		junk_part += 0.01
 		
 		if junk_part >= 0.45:
 			junk_part = 0.45
