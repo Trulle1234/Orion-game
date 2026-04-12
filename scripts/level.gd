@@ -5,7 +5,7 @@ var scroll_speed = 100
 var score_buffer = 0
 var score = 0
 
-var junk_part = 0.2
+var junk_part = 0.25
 var time_min = 1.0
 var time_max = 1.4
 
@@ -19,7 +19,7 @@ func restart():
 	score_buffer = 0
 	score = 0
 
-	junk_part = 0.2
+	junk_part = 0.25
 	time_min = 1.0
 	time_max = 1.4
 
@@ -31,8 +31,8 @@ func _process(delta: float) -> void:
 		
 		junk_part += 0.015
 		
-		if junk_part <= 0.4:
-			junk_part = 0.4
+		if junk_part >= 0.45:
+			junk_part = 0.45
 		
 		time_min -= 0.03
 		time_max -= 0.02
@@ -42,5 +42,12 @@ func _process(delta: float) -> void:
 			
 		if time_max <= 0.5:
 			time_max = 0.5
+			
+		#print(
+			#"\n" + "score = " + str(score) + "\n" 
+			#+ "sroll_speed = " + str(scroll_speed) + "\n"
+			#+ "junk_part = " + str(junk_part) + "\n"
+			#+ "time min/max = " + str(time_min) + " / " + str(time_max)
+		#)
 	
 	score_buffer = score
